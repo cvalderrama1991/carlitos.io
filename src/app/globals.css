@@ -8,6 +8,7 @@
   --dark-green: rgb(30, 82, 41);
   --primary-green: #4d9f3c;
   --light-green: rgb(216, 234, 169);
+  --border-color: white;
 }
 
 [data-theme='light'] {
@@ -16,6 +17,7 @@
   --dark-green: rgb(30, 82, 41);
   --primary-green: #4d9f3c;
   --light-green: rgb(216, 234, 169);
+  --border-color: black;
 }
 
 @font-face {

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   return (
-    <header className='h-16 w-full border-b border-light-green'>
-      <div className='h-full w-full max-w-7xl mx-auto px-4 flex items-center'>
+    <header className='h-16 w-full border-b border-primary-border'>
+      <div className='h-full w-full max-w-7xl mx-auto px-4 flex items-center gap-2'>
         <div className='mr-auto'>
           <Link href='/' className='font-poppins-bold text-xl text-primary-green'>
             Carlitos
@@ -23,6 +24,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
+        <ThemeToggle />
       </div>
     </header>
   );
