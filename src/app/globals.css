@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: rgb(25, 26, 25);
+  --text-primary: white;
+  --dark-green: rgb(30, 82, 41);
+  --primary-green: #4d9f3c;
+  --light-green: rgb(216, 234, 169);
+}
+
+[data-theme='light'] {
+  --bg-primary: white;
+  --text-primary: black;
+  --dark-green: rgb(30, 82, 41);
+  --primary-green: #4d9f3c;
+  --light-green: rgb(216, 234, 169);
+}
+
+@font-face {
+  font-family: 'Poppins Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-regular-webfont.woff2') format('woff2'),
+    url('../fonts/poppins-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Poppins Italic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-italic-webfont.woff2') format('woff2'),
+    url('../fonts/poppins-italic-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Poppins Medium';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-medium-webfont.woff2') format('woff2'),
+    url('../fonts/poppins-medium-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Poppins SemiBold';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-semibold-webfont.woff2') format('woff2'),
+    url('../fonts/poppins-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-bold-webfont.woff2') format('woff2'),
+    url('../fonts/poppins-bold-webfont.woff') format('woff');
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Poppins Regular', serif;
+}
