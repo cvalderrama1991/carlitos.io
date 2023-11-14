@@ -45,13 +45,14 @@ export default function Contact() {
           headers: {
             'Content-Type': 'application/json'
           },
-          method: 'GET'
+          method: 'POST',
+          body: JSON.stringify(formData)
         });
 
-        const data = await response.json();
+        // const data = await response.json();
 
         if (response.ok) {
-          console.log(data);
+          console.log('Message sent successfully!');
         }
       } catch (error) {
         console.log(error);
