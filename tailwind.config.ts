@@ -7,7 +7,9 @@ const config: Config = {
       backgroundColor: {
         'primary-green': 'var(--primary-green)',
         'light-green': 'var(--light-green)',
-        'dark-green': 'var(--dark-green)'
+        'dark-green': 'var(--dark-green)',
+        'bg-primary': 'var(--bg-primary)',
+        'text-primary': 'var(--text-primary)'
       },
       colors: {
         'primary-green': 'var(--primary-green)',

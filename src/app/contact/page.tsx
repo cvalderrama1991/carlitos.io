@@ -3,7 +3,14 @@
 import React from 'react';
 
 export default function Contact() {
-  const [formData, setFormData] = React.useState({
+  type FormData = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    message: string;
+  };
+
+  const [formData, setFormData] = React.useState<FormData>({
     firstName: '',
     lastName: '',
     email: '',
@@ -25,8 +32,31 @@ export default function Contact() {
     setErrors((prev) => ({ ...prev, [e.target.name]: '' }));
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const { firstName, lastName, email, message } = formData;
+
+    let isValid = firstName.trim() !== '' && lastName.trim() !== '' && email.trim() !== '' && message.trim() !== '';
+
+    if (isValid) {
+      try {
+        const response = await fetch('/api/contact', {
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          method: 'GET'
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          console.log(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
     if (formData.firstName.trim() === '') {
       setErrors((prev) => ({ ...prev, firstName: 'First name cannot be blank!' }));
