@@ -3,21 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: rgb(25, 26, 25);
+  --bg-primary: rgba(25, 26, 25, 1);
+  --bg-secondary: rgba(255, 255, 255, 1);
   --text-primary: white;
+  --text-secondary: rgba(25, 26, 25, 1);
   --dark-green: rgb(30, 82, 41);
   --primary-green: #4d9f3c;
   --light-green: rgb(216, 234, 169);
-  --border-color: white;
+  --border-color: rgba(60, 60, 60, 1);
 }
 
 [data-theme='light'] {
-  --bg-primary: white;
-  --text-primary: black;
+  --bg-primary: rgba(255, 255, 255, 1);
+  --bg-secondary: rgba(25, 26, 25, 1);
+  --text-primary: rgba(25, 26, 25, 1);
+  --text-secondary: white;
   --dark-green: rgb(30, 82, 41);
   --primary-green: #4d9f3c;
   --light-green: rgb(216, 234, 169);
-  --border-color: black;
+  --border-color: rgba(200, 200, 200, 1);
 }
 
 @font-face {

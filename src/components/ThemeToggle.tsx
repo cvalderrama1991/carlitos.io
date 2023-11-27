@@ -36,10 +36,10 @@ export default function ThemeToggle() {
     <>
       <label
         htmlFor='theme-toggle'
-        className='relative flex h-8 w-16 cursor-pointer items-center rounded-2xl border border-black bg-white'
+        className='relative flex h-8 w-16 cursor-pointer items-center rounded-2xl bg-secondary-bg'
       >
         <input type='checkbox' name='theme-toggle' id='theme-toggle' className='hidden peer' />
-        <span className='h-6 w-6 translate-x-1 scale-100 rounded-xl bg-black transition-transform peer-checked:translate-x-9'></span>
+        <span className='h-6 w-6 translate-x-1 rounded-xl bg-primary-bg transition-transform peer-checked:translate-x-9'></span>
       </label>
     </>
   );

@@ -1,8 +1,14 @@
 import React from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Carlitos.io | Projects',
+  description: 'Personal Website Portfolio'
+};
 
 export default function Projects() {
   return (
-    <div>
+    <div className='pt-16 px-4 min-h-screen flex items-center justify-center'>
       <section className='w-full max-w-4xl mx-auto'>
         <h3 className='font-poppins-bold text-center text-xl my-2'>Projects</h3>
         <ul className='flex flex-wrap gap-8'>
