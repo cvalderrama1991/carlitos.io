@@ -10,10 +10,17 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <div className='pt-16 px-4 min-h-screen flex items-center justify-center'>
-      <section className='border-primary-border border w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
-        <p className='text-lg text-center'>Message Me</p>
+      <div className='bg-primary-green w-full py-2 rounded-lg flex flex-col md:flex-row'>
+        <section>
+          <p className='text-xl'>Follow Me</p>
+          <ul>
+            <li>
+              <a href='https://github.com/cvalderrama1991?tab=repositories'>GitHub</a>
+            </li>
+          </ul>
+        </section>
         <ContactForm />
-      </section>
+      </div>
     </div>
   );
 }

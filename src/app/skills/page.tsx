@@ -53,7 +53,7 @@ export default function Skills() {
             NextJS
           </li>
           <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
-            PostgreSQL
+            TailwindCSS
           </li>
           <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
             Figma

@@ -34,120 +34,124 @@ export default function ContactForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const { firstName, lastName, email, message } = formData;
-
-    let isValid = firstName.trim() !== '' && lastName.trim() !== '' && email.trim() !== '' && message.trim() !== '';
+    let isValid =
+      formData.firstName.trim() !== '' &&
+      formData.lastName.trim() !== '' &&
+      formData.email.trim() !== '' &&
+      formData.message.trim() !== '';
 
     if (isValid) {
       try {
-        const response = await fetch('/contact/api/contact', {
+        const res = await fetch('api/contact', {
+          method: 'POST',
           headers: {
+            Accept: 'application/json',
             'Content-Type': 'application/json'
           },
-          method: 'POST',
-          body: JSON.stringify(formData)
+          body: JSON.stringify({
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            message: formData.message
+          })
         });
-
-        const data = await response.json();
-        if (response.ok) {
-          console.log('Message sent successfully!');
-        }
+        const data = await res.json();
+        setFormData((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
+        setErrors((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
+        console.log(data);
         return data;
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        let message: string;
+        if (err instanceof Error) {
+          message = err.message;
+        } else if (err && typeof err === 'object' && 'message' in err) {
+          message = String(err.message);
+        } else if (typeof err === 'string') {
+          message = err;
+        } else {
+          message = 'Something went wrong';
+        }
+        return message;
       }
-    }
-
-    if (formData.firstName.trim() === '') {
+    } else {
       setErrors((prev) => ({ ...prev, firstName: 'First name cannot be blank!' }));
-    } else {
-      setErrors((prev) => ({ ...prev, firstName: '' }));
-    }
-    if (formData.lastName.trim() === '') {
       setErrors((prev) => ({ ...prev, lastName: 'Last name cannot be blank!' }));
-    } else {
-      setErrors((prev) => ({ ...prev, lastName: '' }));
-    }
-    if (formData.email.trim() === '') {
-      setErrors((prev) => ({ ...prev, email: 'Email cannot be blank!' }));
-    } else {
-      setErrors((prev) => ({ ...prev, email: '' }));
-    }
-    if (formData.message.trim() === '') {
-      setErrors((prev) => ({ ...prev, message: 'Message cannot be blank!' }));
-    } else {
-      setErrors((prev) => ({ ...prev, message: '' }));
+      setErrors((prev) => ({ ...prev, email: 'Email name cannot be blank!' }));
+      setErrors((prev) => ({ ...prev, message: 'Message name cannot be blank!' }));
     }
   }
   return (
-    <form action='' onSubmit={handleSubmit}>
-      <div className='mb-1'>
-        <label htmlFor='firstName' className='block mb-1'>
-          First Name
-        </label>
-        <input
-          type='text'
-          id='firstName'
-          name='firstName'
-          value={formData.firstName}
-          onChange={handleChange}
-          onInput={handleInput}
-          className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
-          placeholder='First Name...'
-        />
-        <p className='text-red-500 block text-center mt-1'>{errors.firstName}</p>
-      </div>
-      <div className='mb-1'>
-        <label htmlFor='lastName' className='block mb-1'>
-          Last Name
-        </label>
-        <input
-          type='text'
-          id='lastName'
-          name='lastName'
-          value={formData.lastName}
-          onChange={handleChange}
-          onInput={handleInput}
-          className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
-          placeholder='Last Name...'
-        />
-        <p className='text-red-500 block text-center mt-1'>{errors.lastName}</p>
-      </div>
-      <div className='mb-1'>
-        <label htmlFor='email' className='block mb-1'>
-          Email
-        </label>
-        <input
-          type='text'
-          id='email'
-          name='email'
-          value={formData.email}
-          onChange={handleChange}
-          onInput={handleInput}
-          className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
-          placeholder='Email Address...'
-        />
-        <p className='text-red-500 block text-center mt-1'>{errors.email}</p>
-      </div>
-      <div className='mb-1'>
-        <label htmlFor='message' className='block mb-1 rounded-sm'>
-          Message
-        </label>
-        <textarea
-          id='message'
-          name='message'
-          value={formData.message}
-          onChange={handleChange}
-          // onInput={handleInput}
-          onInput={() => setErrors((prev) => ({ ...prev, message: '' }))}
-          className='block h-16 w-full p-1 text-black rounded-sm border border-primary-border'
-          placeholder='Message...'
-        />
-        <p className='text-red-500 block text-center mt-1'>{errors.message}</p>
-      </div>
-      <button type='submit' className='bg-primary-green text-white h-8 w-full rounded-sm'>
-        Submit
-      </button>
-    </form>
+    <section className='bg-primary-bg border-primary-border border w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
+      <p className='text-xl text-center'>Message Me</p>
+      <form onSubmit={handleSubmit}>
+        <div className='mb-1'>
+          <label htmlFor='firstName' className='block mb-1'>
+            First Name
+          </label>
+          <input
+            type='text'
+            id='firstName'
+            name='firstName'
+            value={formData.firstName}
+            onChange={handleChange}
+            onInput={handleInput}
+            className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
+            placeholder='First Name...'
+          />
+          <p className='text-red-500 block text-center mt-1'>{errors.firstName}</p>
+        </div>
+        <div className='mb-1'>
+          <label htmlFor='lastName' className='block mb-1'>
+            Last Name
+          </label>
+          <input
+            type='text'
+            id='lastName'
+            name='lastName'
+            value={formData.lastName}
+            onChange={handleChange}
+            onInput={handleInput}
+            className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
+            placeholder='Last Name...'
+          />
+          <p className='text-red-500 block text-center mt-1'>{errors.lastName}</p>
+        </div>
+        <div className='mb-1'>
+          <label htmlFor='email' className='block mb-1'>
+            Email
+          </label>
+          <input
+            type='text'
+            id='email'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+            onInput={handleInput}
+            className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
+            placeholder='Email Address...'
+          />
+          <p className='text-red-500 block text-center mt-1'>{errors.email}</p>
+        </div>
+        <div className='mb-1'>
+          <label htmlFor='message' className='block mb-1 rounded-sm'>
+            Message
+          </label>
+          <textarea
+            id='message'
+            name='message'
+            value={formData.message}
+            onChange={handleChange}
+            // onInput={handleInput}
+            onInput={() => setErrors((prev) => ({ ...prev, message: '' }))}
+            className='block h-16 w-full p-1 text-black rounded-sm border border-primary-border'
+            placeholder='Message...'
+          />
+          <p className='text-red-500 block text-center mt-1'>{errors.message}</p>
+        </div>
+        <button type='submit' className='bg-primary-green text-white h-8 w-full rounded-sm'>
+          Submit
+        </button>
+      </form>
+    </section>
   );
 }
