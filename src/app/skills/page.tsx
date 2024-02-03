@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Carlitos.io | Skills',
-  description: 'Personal Website Portfolio'
+  description: 'Personal Website Portfolio',
 };
 
 export default function Skills() {
@@ -13,27 +13,34 @@ export default function Skills() {
       <h2 className='font-poppins-bold text-center text-2xl my-2'>SKILLS</h2>
       <section>
         <p>
-          Hello, My name is Carlos and I&apos;m a passionate Full Stack Developer using web technologies to build
-          amazing products and focusing on solving problems for different niches and different industries using the
-          power of technology.
+          Hello, My name is Carlos and I&apos;m a passionate Full Stack
+          Developer using web technologies to build amazing products and
+          focusing on solving problems for different niches and different
+          industries using the power of technology.
         </p>
         <p>
-          I will love to hear from you. Whether it&apos;s a project, job opportunity, or just a chat. Feel free to
-          contact me.
+          I will love to hear from you. Whether it&apos;s a project, job
+          opportunity, or just a chat. Feel free to contact me.
         </p>
 
         <Link
-          href='/resume'
+          href='https://docs.google.com/document/d/14iGj8cKF6Cpcc29beRZ0z3VXH5oDV3QonZmKm4cRR4A/edit?usp=sharing'
           className='flex items-center justify-center bg-primary-green h-12 w-full md:w-32 my-2 rounded text-white'
         >
           Resume
         </Link>
       </section>
       <section>
-        <p className='text-center font-poppins-semibold my-4 text-xl'>Languages and Tools</p>
+        <p className='text-center font-poppins-semibold my-4 text-xl'>
+          Languages and Tools
+        </p>
         <ul className='flex flex-wrap gap-4'>
-          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>HTML</li>
-          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>CSS</li>
+          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
+            HTML
+          </li>
+          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
+            CSS
+          </li>
           <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
             JavaScript
           </li>
@@ -58,7 +65,9 @@ export default function Skills() {
           <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
             Figma
           </li>
-          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>AWS</li>
+          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
+            AWS
+          </li>
         </ul>
       </section>
     </div>
