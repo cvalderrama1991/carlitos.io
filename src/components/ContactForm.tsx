@@ -58,7 +58,6 @@ export default function ContactForm() {
         const data = await res.json();
         setFormData((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
         setErrors((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
-        console.log(data);
         return data;
       } catch (err) {
         let message: string;

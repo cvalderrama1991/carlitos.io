@@ -9,7 +9,6 @@ type Body = {
 
 export async function POST(req: NextRequest) {
   const body: Body = await req.json();
-  // console.log(body);
   try {
     const res = await fetch(process.env.CONTACT_FORM_ENDPOINT, {
       method: 'POST',
@@ -25,9 +24,18 @@ export async function POST(req: NextRequest) {
       })
     });
     const data = await res.json();
-    console.log(data);
     return NextResponse.json({ data });
   } catch (err) {
-    console.log(err);
+    let message: string;
+    if (err instanceof Error) {
+      message = err.message;
+    } else if (err && typeof err === 'object' && 'message' in err) {
+      message = String(err.message);
+    } else if (typeof err === 'string') {
+      message = err;
+    } else {
+      message = 'Something went wrong';
+    }
+    return message;
   }
 }
