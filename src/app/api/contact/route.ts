@@ -9,7 +9,7 @@ type Body = {
 
 export async function POST(req: NextRequest) {
   const body: Body = await req.json();
-  console.log(body);
+  // console.log(body);
   try {
     const res = await fetch(process.env.CONTACT_FORM_ENDPOINT, {
       method: 'POST',

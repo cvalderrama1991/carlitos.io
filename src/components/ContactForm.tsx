@@ -42,7 +42,7 @@ export default function ContactForm() {
 
     if (isValid) {
       try {
-        const res = await fetch('api/contact', {
+        const res = await fetch('/api/contact', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
