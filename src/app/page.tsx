@@ -18,19 +18,19 @@ export default function Home() {
         </h2>
         <p>I enjoy building web applications with modern technology.</p>
         <div className='flex gap-4 my-2'>
-          <a
-            href='CarlosValderramaResume.pdf'
-            target='_blank'
+          <Link
+            href='/skills'
             className='flex items-center justify-center border border-primary-border h-8 w-32 rounded'
           >
             My Skills
-          </a>
-          <button
-            type='button'
+          </Link>
+          <a
+            href='CarlosValderramaResume.pdf'
+            target='_blank'
             className='flex items-center justify-center bg-primary-green h-8 w-32 rounded text-white'
           >
             Resume
-          </button>
+          </a>
         </div>
       </section>
     </div>

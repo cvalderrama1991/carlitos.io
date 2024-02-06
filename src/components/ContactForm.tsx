@@ -16,6 +16,8 @@ export default function ContactForm() {
     message: ''
   });
 
+  const [loading, setLoading] = React.useState(false);
+
   const [errors, setErrors] = React.useState({
     firstName: '',
     lastName: '',
@@ -42,6 +44,7 @@ export default function ContactForm() {
 
     if (isValid) {
       try {
+        setLoading(true);
         const res = await fetch('api/contact', {
           method: 'POST',
           headers: {
@@ -56,10 +59,12 @@ export default function ContactForm() {
           })
         });
         const data = await res.json();
+        setLoading(false);
         setFormData((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
         setErrors((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
         return data;
       } catch (err) {
+        setLoading(false);
         let message: string;
         if (err instanceof Error) {
           message = err.message;
@@ -77,6 +82,7 @@ export default function ContactForm() {
       setErrors((prev) => ({ ...prev, lastName: 'Last name cannot be blank!' }));
       setErrors((prev) => ({ ...prev, email: 'Email name cannot be blank!' }));
       setErrors((prev) => ({ ...prev, message: 'Message name cannot be blank!' }));
+      setLoading(false);
     }
   }
   return (
@@ -148,7 +154,7 @@ export default function ContactForm() {
           <p className='text-red-500 block text-center mt-1'>{errors.message}</p>
         </div>
         <button type='submit' className='bg-primary-green text-white h-8 w-full rounded-sm'>
-          Submit
+          {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
     </section>
