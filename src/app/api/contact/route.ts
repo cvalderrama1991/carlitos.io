@@ -36,6 +36,6 @@ export async function POST(req: NextRequest) {
     } else {
       message = 'Something went wrong';
     }
-    return message;
+    return NextResponse.json({ message });
   }
 }
