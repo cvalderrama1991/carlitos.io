@@ -15,7 +15,15 @@ export default function Contact() {
           <p className='text-xl'>Follow Me</p>
           <ul>
             <li>
-              <a href='https://github.com/cvalderrama1991?tab=repositories'>GitHub</a>
+              <a href='https://github.com/cvalderrama1991?tab=repositories' target='_blank'>
+                GitHub
+              </a>
+              <a href='https://www.linkedin.com/in/carlos-valderrama-b92376240/' target='_blank'>
+                LinkedIN
+              </a>
+              <a href='https://codepen.io/valdeca' target='_blank'>
+                CodePen
+              </a>
             </li>
           </ul>
         </section>
