@@ -11,17 +11,33 @@ export default function Contact() {
   return (
     <div className='pt-16 px-4 min-h-screen flex items-center justify-center'>
       <div className='bg-primary-green w-full py-2 rounded-lg flex flex-col md:flex-row'>
-        <section>
-          <p className='text-xl'>Follow Me</p>
+        <section className='max-w-sm mx-auto w-full'>
+          <p className='text-xl text-white text-center'>Follow Me</p>
           <ul>
             <li>
-              <a href='https://github.com/cvalderrama1991?tab=repositories' target='_blank'>
+              <a
+                href='https://github.com/cvalderrama1991'
+                target='_blank'
+                className='text-white p-2 mt-1 mx-2 block border border-white text-center rounded-md'
+              >
                 GitHub
               </a>
-              <a href='https://www.linkedin.com/in/carlos-valderrama-b92376240/' target='_blank'>
-                LinkedIN
+            </li>
+            <li>
+              <a
+                href='https://www.linkedin.com/in/carlos-valderrama-b92376240/'
+                target='_blank'
+                className='text-white p-2 mt-1 mx-2 block border border-white text-center rounded-md'
+              >
+                LinkedIn
               </a>
-              <a href='https://codepen.io/valdeca' target='_blank'>
+            </li>
+            <li>
+              <a
+                href='https://codepen.io/valdeca'
+                target='_blank'
+                className='text-white p-2 mt-1 mx-2 block border border-white text-center rounded-md'
+              >
                 CodePen
               </a>
             </li>

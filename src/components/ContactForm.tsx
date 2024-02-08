@@ -86,7 +86,7 @@ export default function ContactForm() {
     }
   }
   return (
-    <section className='bg-primary-bg border-primary-border border w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
+    <section className='bg-primary-bg border-2 border-primary-green w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
       <p className='text-xl text-center'>Message Me</p>
       <form onSubmit={handleSubmit}>
         <div className='mb-1'>
