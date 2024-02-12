@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Card from '@/components/Card';
 
 export const metadata: Metadata = {
   title: 'Carlitos.io | Projects',
@@ -10,15 +11,20 @@ export default function Projects() {
   return (
     <div className='pt-16 px-4 min-h-screen flex items-center justify-center'>
       <section className='w-full max-w-4xl mx-auto'>
-        <h3 className='font-poppins-bold text-center text-xl my-2'>Projects</h3>
+        <h3 className='font-poppins-bold text-center text-2xl my-2'>PROJECTS</h3>
         <ul className='flex flex-wrap gap-8'>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
-          <li className='bg-neutral-500 text-white block h-16 w-48'></li>
+          <Card
+            title='Carlitos (My Portfolio)'
+            technologies='NextJS, ReactJS, NodeJS, TailwindCSS, AWS Amplify, AWS Lambda, AWS API Gateway, AWS Simple Email Service, Google Domain, Figma'
+            link='https://carlitos.io/'
+            website='www.carlitos.io'
+          />
+          <Card
+            title='Southern Ridge Electric'
+            technologies='ReactJS, Google Domain, AWS Route 53, AWS S3 Bucket, AWS Cloudfront, AWS Lambda, AWS API Gateway, AWS Simple Email Service'
+            link='https://southernridgeelectric.com/'
+            website='www.southernridgeelectric.com'
+          />
         </ul>
       </section>
     </div>

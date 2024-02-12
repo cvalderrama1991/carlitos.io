@@ -58,7 +58,9 @@ export default function Skills() {
           <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
             Figma
           </li>
-          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>AWS</li>
+          <li className='bg-secondary-bg text-secondary-text p-2 rounded w-32 font-poppins-medium text-center'>
+            AWS Services
+          </li>
         </ul>
       </section>
     </div>

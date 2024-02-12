@@ -20,14 +20,14 @@ export default function Home() {
         <div className='flex gap-4 my-2'>
           <Link
             href='/skills'
-            className='flex items-center justify-center border border-primary-border h-8 w-32 rounded'
+            className='flex items-center justify-center border-2 border-primary-border h-8 w-32 rounded'
           >
             My Skills
           </Link>
           <a
             href='CarlosValderramaResume.pdf'
             target='_blank'
-            className='flex items-center justify-center bg-primary-green h-8 w-32 rounded text-white'
+            className='flex items-center justify-center bg-primary-green h-8 w-32 rounded text-secondary-text'
           >
             Resume
           </a>
