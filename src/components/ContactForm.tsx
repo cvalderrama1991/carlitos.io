@@ -86,7 +86,7 @@ export default function ContactForm() {
     }
   }
   return (
-    <section className='bg-primary-bg border-2 border-primary-green w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
+    <section className='bg-primary-bg w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
       <p className='text-xl text-center'>Message Me</p>
       <form onSubmit={handleSubmit}>
         <div className='mb-1'>
@@ -100,7 +100,7 @@ export default function ContactForm() {
             value={formData.firstName}
             onChange={handleChange}
             onInput={handleInput}
-            className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
+            className='h-10 w-full px-1 text-black rounded-sm border border-primary-border'
             placeholder='First Name...'
           />
           <p className='text-red-500 block text-center mt-1'>{errors.firstName}</p>
@@ -116,7 +116,7 @@ export default function ContactForm() {
             value={formData.lastName}
             onChange={handleChange}
             onInput={handleInput}
-            className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
+            className='h-10 w-full px-1 text-black rounded-sm border border-primary-border'
             placeholder='Last Name...'
           />
           <p className='text-red-500 block text-center mt-1'>{errors.lastName}</p>
@@ -132,7 +132,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             onInput={handleInput}
-            className='h-8 w-full px-1 text-black rounded-sm border border-primary-border'
+            className='h-10 w-full px-1 text-black rounded-sm border border-primary-border'
             placeholder='Email Address...'
           />
           <p className='text-red-500 block text-center mt-1'>{errors.email}</p>
@@ -153,7 +153,7 @@ export default function ContactForm() {
           />
           <p className='text-red-500 block text-center mt-1'>{errors.message}</p>
         </div>
-        <button type='submit' className='bg-primary-green text-white h-8 w-full rounded-sm'>
+        <button type='submit' className='bg-primary-green text-secondary-text h-10 w-full rounded-md'>
           {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>
