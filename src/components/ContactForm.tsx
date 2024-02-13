@@ -78,16 +78,16 @@ export default function ContactForm() {
         return message;
       }
     } else {
-      setErrors((prev) => ({ ...prev, firstName: 'First name cannot be blank!' }));
-      setErrors((prev) => ({ ...prev, lastName: 'Last name cannot be blank!' }));
-      setErrors((prev) => ({ ...prev, email: 'Email name cannot be blank!' }));
-      setErrors((prev) => ({ ...prev, message: 'Message name cannot be blank!' }));
+      setErrors((prev) => ({ ...prev, firstName: 'First name is required!' }));
+      setErrors((prev) => ({ ...prev, lastName: 'Last name is required!' }));
+      setErrors((prev) => ({ ...prev, email: 'Email name is required!' }));
+      setErrors((prev) => ({ ...prev, message: 'Message name is required!' }));
       setLoading(false);
     }
   }
   return (
-    <section className='bg-primary-bg w-full max-w-sm mx-auto p-4 my-2 rounded-lg'>
-      <p className='text-xl text-center'>Message Me</p>
+    <section className='bg-primary-bg w-full'>
+      <p className='text-xl text-primary-text text-center my-4'>Message Me</p>
       <form onSubmit={handleSubmit}>
         <div className='mb-1'>
           <label htmlFor='firstName' className='block mb-1'>
@@ -153,8 +153,12 @@ export default function ContactForm() {
           />
           <p className='text-red-500 block text-center mt-1'>{errors.message}</p>
         </div>
-        <button type='submit' className='bg-primary-green text-secondary-text h-10 w-full rounded-md'>
-          {loading ? 'Submitting...' : 'Submit'}
+        <button
+          type='submit'
+          className='bg-primary-green text-secondary-text h-10 w-full rounded-md'
+          disabled={loading}
+        >
+          {loading ? 'Sending Message...' : 'Send Message'}
         </button>
       </form>
     </section>
