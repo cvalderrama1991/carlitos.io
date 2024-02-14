@@ -13,7 +13,7 @@ export default function ContactForm() {
     firstName: '',
     lastName: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const [loading, setLoading] = React.useState(false);
@@ -22,10 +22,12 @@ export default function ContactForm() {
     firstName: '',
     lastName: '',
     email: '',
-    message: ''
+    message: '',
   });
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
@@ -49,19 +51,31 @@ export default function ContactForm() {
           method: 'POST',
           headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             firstName: formData.firstName,
             lastName: formData.lastName,
             email: formData.email,
-            message: formData.message
-          })
+            message: formData.message,
+          }),
         });
         const data = await res.json();
         setLoading(false);
-        setFormData((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
-        setErrors((prev) => ({ ...prev, firstName: '', lastName: '', email: '', message: '' }));
+        setFormData((prev) => ({
+          ...prev,
+          firstName: '',
+          lastName: '',
+          email: '',
+          message: '',
+        }));
+        setErrors((prev) => ({
+          ...prev,
+          firstName: '',
+          lastName: '',
+          email: '',
+          message: '',
+        }));
         return data;
       } catch (err) {
         setLoading(false);
@@ -86,8 +100,8 @@ export default function ContactForm() {
     }
   }
   return (
-    <section className='bg-primary-bg w-full'>
-      <p className='text-xl text-primary-text text-center my-4'>Message Me</p>
+    <section className='bg-primary-bg w-full border-2 border-primary-border rounded-md p-2'>
+      <p className='text-xl text-primary-text text-center my-2'>Message Me</p>
       <form onSubmit={handleSubmit}>
         <div className='mb-1'>
           <label htmlFor='firstName' className='block mb-1'>
@@ -103,7 +117,9 @@ export default function ContactForm() {
             className='h-10 w-full px-1 text-black rounded-sm border border-primary-border'
             placeholder='First Name...'
           />
-          <p className='text-red-500 block text-center mt-1'>{errors.firstName}</p>
+          <p className='text-red-500 block text-center mt-1'>
+            {errors.firstName}
+          </p>
         </div>
         <div className='mb-1'>
           <label htmlFor='lastName' className='block mb-1'>
@@ -119,7 +135,9 @@ export default function ContactForm() {
             className='h-10 w-full px-1 text-black rounded-sm border border-primary-border'
             placeholder='Last Name...'
           />
-          <p className='text-red-500 block text-center mt-1'>{errors.lastName}</p>
+          <p className='text-red-500 block text-center mt-1'>
+            {errors.lastName}
+          </p>
         </div>
         <div className='mb-1'>
           <label htmlFor='email' className='block mb-1'>
@@ -151,7 +169,9 @@ export default function ContactForm() {
             className='block h-16 w-full p-1 text-black rounded-sm border border-primary-border'
             placeholder='Message...'
           />
-          <p className='text-red-500 block text-center mt-1'>{errors.message}</p>
+          <p className='text-red-500 block text-center mt-1'>
+            {errors.message}
+          </p>
         </div>
         <button
           type='submit'
