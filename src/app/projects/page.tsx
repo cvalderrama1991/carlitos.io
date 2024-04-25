@@ -26,7 +26,7 @@ export default function Projects() {
             website='www.southernridgeelectric.com'
           />
           <Card
-            title='ReactATX (Coming soon)'
+            title='ReactATX'
             technologies='ReactJS, NextJS, CSS, PostgreSQL, Docker'
             link='https://www.reactatx.org'
             website='www.reactatx.org'
