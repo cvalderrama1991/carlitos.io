@@ -21,7 +21,7 @@ export default function Card({ title, technologies, link, website }: Props) {
           ))}
         </ul>
       </figure>
-      <a href={link} className='text-primary-green'>
+      <a href={link} className='text-primary-green' target='_blank'>
         {website}
       </a>
     </li>
