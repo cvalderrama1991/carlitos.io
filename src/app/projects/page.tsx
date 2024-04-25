@@ -4,16 +4,14 @@ import Card from '@/components/Card';
 
 export const metadata: Metadata = {
   title: 'Carlitos.io | Projects',
-  description: 'Personal Website Portfolio',
+  description: 'Personal Website Portfolio'
 };
 
 export default function Projects() {
   return (
     <div className='pt-16 px-4 min-h-screen w-full max-w-7xl mx-auto'>
       <section>
-        <h2 className='font-poppins-bold text-center text-2xl my-2'>
-          PROJECTS
-        </h2>
+        <h2 className='font-poppins-bold text-center text-2xl my-2'>PROJECTS</h2>
         <ul className='flex flex-wrap gap-8 justify-center'>
           <Card
             title='Carlitos (My Portfolio)'
@@ -30,15 +28,13 @@ export default function Projects() {
           <Card
             title='ReactATX (Coming soon)'
             technologies='ReactJS, NextJS, CSS, PostgreSQL, Docker'
-            link='https://carlitos.io/projects'
-            website='www.reactatx.com'
+            link='https://www.reactatx.org'
+            website='www.reactatx.org'
           />
         </ul>
       </section>
       <section>
-        <h3 className='font-poppins-bold text-center text-xl my-2'>
-          My other projects
-        </h3>
+        <h3 className='font-poppins-bold text-center text-xl my-2'>My other projects</h3>
         <ul className='max-w-md mx-auto'>
           <li>
             <a
