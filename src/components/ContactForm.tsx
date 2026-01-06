@@ -9,6 +9,13 @@ export default function ContactForm() {
     message: string;
   };
 
+  type FormErrors = {
+    firstName: string;
+    lastName: string;
+    email: string;
+    message: string;
+  }
+
   const [formData, setFormData] = React.useState<FormData>({
     firstName: '',
     lastName: '',
@@ -17,8 +24,9 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = React.useState(false);
+  const [successMessage, setSuccessMessage] = React.useState('');
 
-  const [errors, setErrors] = React.useState({
+  const [errors, setErrors] = React.useState<FormErrors>({
     firstName: '',
     lastName: '',
     email: '',
@@ -76,6 +84,7 @@ export default function ContactForm() {
           email: '',
           message: '',
         }));
+        setSuccessMessage(data.message);
         return data;
       } catch (err) {
         setLoading(false);
@@ -180,6 +189,7 @@ export default function ContactForm() {
         >
           {loading ? 'Sending Message...' : 'Send Message'}
         </button>
+        <p>{successMessage}</p>
       </form>
     </section>
   );
