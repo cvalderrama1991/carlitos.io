@@ -189,7 +189,7 @@ export default function ContactForm() {
         >
           {loading ? 'Sending Message...' : 'Send Message'}
         </button>
-        <p className='text-red-400'>{successMessage}</p>
+        {/* <p className='text-red-400'>{successMessage}</p> */}
       </form>
     </section>
   );
