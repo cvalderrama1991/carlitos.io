@@ -24,7 +24,7 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = React.useState(false);
-  // const [successMessage, setSuccessMessage] = React.useState('');
+  const [successMessage, setSuccessMessage] = React.useState('');
 
   const [errors, setErrors] = React.useState<FormErrors>({
     firstName: '',
@@ -84,7 +84,8 @@ export default function ContactForm() {
           email: '',
           message: '',
         }));
-        console.log(data)
+        console.log(data.message)
+        setSuccessMessage(data.message)
         return data;
       } catch (err) {
         setLoading(false);
@@ -189,7 +190,7 @@ export default function ContactForm() {
         >
           {loading ? 'Sending Message...' : 'Send Message'}
         </button>
-        {/* <p className='text-red-400'>{successMessage}</p> */}
+        <p>{successMessage}</p>
       </form>
     </section>
   );
