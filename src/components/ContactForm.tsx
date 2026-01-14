@@ -84,7 +84,7 @@ export default function ContactForm() {
           email: '',
           message: '',
         }));
-        console.log(data.message)
+        console.log(data)
         setSuccessMessage(data.message)
         return data;
       } catch (err) {
