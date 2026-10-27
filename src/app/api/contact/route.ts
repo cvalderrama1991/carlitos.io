@@ -7,35 +7,59 @@ type Body = {
   message: string;
 };
 
+function isBody(value: unknown): value is Body {
+  if (typeof value !== 'object' || value === null) return false;
+
+  const body = value as Record<string, unknown>;
+  return ['firstName', 'lastName', 'email', 'message'].every(
+    (field) => typeof body[field] === 'string'
+  );
+}
+
 export async function POST(req: NextRequest) {
-  const body: Body = await req.json();
+  let body: unknown;
+
   try {
-    const res = await fetch(process.env.CONTACT_FORM_ENDPOINT, {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ message: 'Invalid JSON body.' }, { status: 400 });
+  }
+
+  if (!isBody(body)) {
+    return NextResponse.json({ message: 'Invalid contact form data.' }, { status: 400 });
+  }
+
+  const endpoint = process.env.CONTACT_FORM_ENDPOINT;
+
+  if (!endpoint) {
+    return NextResponse.json(
+      { message: 'Contact service is not configured.' },
+      { status: 500 }
+    );
+  }
+
+  try {
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        firstName: body.firstName,
-        lastName: body.lastName,
-        email: body.email,
-        message: body.message
-      })
+      body: JSON.stringify(body),
     });
-    const data = await res.json();
-    return NextResponse.json({ data });
-  } catch (err) {
-    let message: string;
-    if (err instanceof Error) {
-      message = err.message;
-    } else if (err && typeof err === 'object' && 'message' in err) {
-      message = String(err.message);
-    } else if (typeof err === 'string') {
-      message = err;
-    } else {
-      message = 'Something went wrong';
+
+    if (!response.ok) {
+      return NextResponse.json(
+        { message: 'The contact service could not send your message.' },
+        { status: 502 }
+      );
     }
-    return NextResponse.json({ message });
+
+    return NextResponse.json({ message: 'Message sent successfully!' });
+  } catch {
+    return NextResponse.json(
+      { message: 'The contact service is unavailable. Please try again.' },
+      { status: 502 }
+    );
   }
 }
